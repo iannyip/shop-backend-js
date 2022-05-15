@@ -1,6 +1,6 @@
 "use strict";
 
-import { faker } from "@faker-js/faker";
+const { faker } = require("@faker-js/faker");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -16,7 +16,7 @@ module.exports = {
         name: faker.name.findName(),
         email: faker.internet.email(),
         created_at: new Date(),
-        created_at: new Date(),
+        updated_at: new Date(),
       });
     }
 
@@ -40,8 +40,8 @@ module.exports = {
     const numberOfOrders = 100;
     for (let i = 0; i < numberOfOrders; i++) {
       orderList.push({
-        customer_id: Math.floor(Math.random() * numberOfCustomers),
-        total_price: Math.random() * 100,
+        customer_id: Math.floor(Math.random() * numberOfCustomers) + 1,
+        total_price: Math.floor(Math.random() * 10000) / 100,
         created_at: new Date(),
         updated_at: new Date(),
       });
@@ -54,8 +54,8 @@ module.exports = {
       let itemCount = Math.floor(Math.random() * maxItems);
       for (let j = 0; j < itemCount; j++) {
         orderProductList.push({
-          order_id: numberOfOrders,
-          product_id: Math.floor(Math.random() * numberOfProducts),
+          order_id: i + 1,
+          product_id: Math.floor(Math.random() * numberOfProducts) + 1,
           quantity: Math.floor(Math.random() * maxItems) + 1,
           total_price: Math.floor(Math.random() * 20000) / 100,
           created_at: new Date(),
