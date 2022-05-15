@@ -1,4 +1,4 @@
-export default function initProductModel(sequelize, DataTypes) {
+export default function initCustomerModel(sequelize, DataTypes) {
   return sequelize.define(
     "customer",
     {
