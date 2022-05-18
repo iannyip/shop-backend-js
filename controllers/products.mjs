@@ -20,7 +20,6 @@ export default function initProductController(db) {
         where: { id },
       });
       response.send(singleProduct);
-      response.sendStatus(200);
     } catch (error) {
       console.log(error);
     }
