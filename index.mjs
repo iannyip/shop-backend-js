@@ -1,3 +1,5 @@
+// THIS IS THE ROOT FILE RUN WITH NPX NODEMON INDEX.JS
+
 // 1a. Import NPM libraries
 import express from "express";
 import cookieParser from "cookie-parser";
