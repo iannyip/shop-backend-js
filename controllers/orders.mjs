@@ -5,7 +5,8 @@ export default function initOrderController(db) {
   // 2A: /orders/create endpoint
   const create = async (request, response) => {
     try {
-      response.send("inside orders/create endpoint");
+      // response.send("inside orders/create endpoint");
+      response.render("orderForm");
     } catch (error) {
       console.log(error);
     }
