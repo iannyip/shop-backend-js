@@ -23,6 +23,18 @@ const mwLogger = (request, response, next) => {
   next();
 };
 app.use(mwLine, mwLogger, mwLine);
+app.use(express.urlencoded({ extended: false }));
+
+app.post("/", (req, res) => {
+  console.log(req.route);
+  const postData = req.body;
+
+  console.log(`postData: ${postData}`);
+  console.log(postData);
+  console.log(typeof postData);
+  res.send("received thanks");
+  res.status(200);
+});
 
 // 5. Bind route definitions to the instance of Express (app)
 bindRoutes(app);
