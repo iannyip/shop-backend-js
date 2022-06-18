@@ -14,12 +14,15 @@ import bindRoutes from "./routes.mjs";
 const app = express();
 
 // 4. All the additional middleware we want to add
-const mwLogger = (request, response, next) => {
+const mwLine = (request, response, next) => {
   console.log("---------------------------------------------------------");
+  next();
+};
+const mwLogger = (request, response, next) => {
   console.log(`mwLogger :: ${request.method} at ${request.url}`);
   next();
 };
-app.use(mwLogger);
+app.use(mwLine, mwLogger, mwLine);
 
 // 5. Bind route definitions to the instance of Express (app)
 bindRoutes(app);
