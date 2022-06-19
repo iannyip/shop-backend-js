@@ -4,6 +4,30 @@
     <%- include('./partial/header') -%>
   </head>
   <body>
-    hello
+    <div class="container mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Customer ID</th>
+            <th>Total Price</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allOrders.forEach(order => { %>
+          <tr>
+            <td><%= order.id%></td>
+            <td><%= order.customerId%></td>
+            <td><%= order.totalPrice%></td>
+            <td><%= moment(order.createdAt).format("DD-MM-YYYY Z")%></td>
+            <td><%= moment(order.updatedAt).format("DD-MM-YYYY Z")%></td>
+          </tr>
+
+          <% })%>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

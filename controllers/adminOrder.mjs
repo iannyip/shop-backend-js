@@ -1,3 +1,4 @@
+import moment from "moment";
 // 1. Module exports function that does stuff to db
 export default function initAdminOrderController(db) {
   // 2A /admin/orders
@@ -5,7 +6,7 @@ export default function initAdminOrderController(db) {
     try {
       const allOrders = await db.Order.findAll();
       // response.send(allOrders);
-      response.render("allOrders");
+      response.render("allOrders", { allOrders, moment });
     } catch (error) {
       console.log(error);
     }
