@@ -14,18 +14,12 @@ export default function initOrderController(db) {
 
   const create = async (request, response) => {
     try {
-      console.log(request.route);
       let data = request.body;
-      if (typeof request.body == "string") {
-        console.log("data is string");
-        data = JSON.parse(data);
-      }
-      console.log(`fname: ${data.fname}`);
       console.log(`data:`);
       console.log(data);
-      console.log(data.toString());
       console.log(`data type: ${typeof data}`);
-      response.sendStatus(200);
+      response.status(200);
+      response.redirect("/orders/createForm");
     } catch (error) {
       console.log(error);
     }
