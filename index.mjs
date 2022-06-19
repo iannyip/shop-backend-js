@@ -25,7 +25,7 @@ const mwLogger = (request, response, next) => {
 app.set("view engine", "ejs");
 app.use(mwLine, mwLogger, mwLine);
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.text());
 app.use(express.raw());
 
