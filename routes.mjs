@@ -26,4 +26,5 @@ export default function bindRoutes(app) {
   app.get("/orders/:id", orderController.show);
 
   app.get("/admin/orders", adminOrderController.index);
+  app.get("/admin/orders/:id", adminOrderController.show);
 }
