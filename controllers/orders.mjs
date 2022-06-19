@@ -3,10 +3,29 @@ export default function initOrderController(db) {
   // 2. Each async function takes in a request and response object
 
   // 2A: /orders/create endpoint
-  const create = async (request, response) => {
+  const createForm = async (request, response) => {
     try {
       // response.send("inside orders/create endpoint");
       response.render("orderForm");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const create = async (request, response) => {
+    try {
+      console.log(request.route);
+      let data = request.body;
+      if (typeof request.body == "string") {
+        console.log("data is string");
+        data = JSON.parse(data);
+      }
+      console.log(`fname: ${data.fname}`);
+      console.log(`data:`);
+      console.log(data);
+      console.log(data.toString());
+      console.log(`data type: ${typeof data}`);
+      response.sendStatus(200);
     } catch (error) {
       console.log(error);
     }
@@ -28,6 +47,7 @@ export default function initOrderController(db) {
 
   // 3. The exported controller will return an object of functions
   return {
+    createForm,
     create,
     show,
   };

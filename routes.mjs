@@ -19,6 +19,7 @@ export default function bindRoutes(app) {
   app.get("/products", productController.index);
   app.get("/products/:id", productController.show);
 
-  app.get("/orders/create", orderController.create); // to convert this to POST
+  app.get("/orders/createForm", orderController.createForm);
+  app.post("/orders/create", orderController.create); // to convert this to POST
   app.get("/orders/:id", orderController.show);
 }
