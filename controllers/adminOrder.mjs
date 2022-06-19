@@ -4,7 +4,8 @@ export default function initAdminOrderController(db) {
   const index = async (request, response) => {
     try {
       const allOrders = await db.Order.findAll();
-      response.send(allOrders);
+      // response.send(allOrders);
+      response.render("allOrders");
     } catch (error) {
       console.log(error);
     }
