@@ -17,7 +17,14 @@ export default function initOrderController(db) {
       let data = request.body;
       console.log(`data:`);
       console.log(data);
-      console.log(`data type: ${typeof data}`);
+
+      // INSERT into DB
+      await db.Order.create({
+        customerId: data.customerId,
+        totalPrice: data.totalPrice,
+      });
+
+      // Send response
       response.status(200);
       response.redirect("/orders/createForm");
     } catch (error) {
